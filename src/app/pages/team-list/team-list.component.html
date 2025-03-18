@@ -1,0 +1,29 @@
+<ng-container>
+  <nz-card class="teams-list">
+    <h2 appHighlightTitle>🏁 Equipos de la F1</h2>
+    <nz-table [nzBordered]="true" [nzData]="teams" [nzSize]="'middle'" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="10%">Posición</th>
+          <th nzWidth="10%">Logo</th>
+          <th nzWidth="30%">Nombre</th>
+          <th nzWidth="25%">Sede</th>
+          <th nzWidth="15%">Campeonatos de constructores</th>
+          <th nzWidth="10%">Puntos</th>
+          <!-- <th nzWidth="10%">Acción</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{ team.position }}</td>
+          <td><img [src]="'assets/images/constructores/' + team.teamId + '.jpg'" alt="Logo de {{ team.team.teamName }}" class="team-logo"></td>
+          <td>{{ team.team.teamName }}</td>
+          <td>{{ team.team.country }}</td>
+          <td>{{ team.team.constructorsChampionships || 0 }}</td>
+          <td>{{ team.points || 0 | points }}</td>
+          <!-- <td><button nz-button nzType="primary">Ver Pilotos</button></td> -->
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</ng-container>
