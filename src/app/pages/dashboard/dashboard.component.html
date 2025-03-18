@@ -1,0 +1,20 @@
+<ng-container>
+  <nz-card class="dashboard-card">
+    <h2 appHighlightTitle>📊 Estadísticas</h2>
+    <nz-select [(ngModel)]="selectedYear" (ngModelChange)="updateCharts()" class="year-selector">
+      <nz-option *ngFor="let year of years" [nzValue]="year" [nzLabel]="year"></nz-option>
+    </nz-select>
+    
+    <div class="charts-container">
+      <div class="chart">
+        <h3>Top 5 Pilotos</h3>
+        <canvas baseChart [data]="pilotsChartData" [options]="chartOptions" chartType="bar"></canvas>
+      </div>
+      
+      <div class="chart">
+        <h3>Top 5 Constructores</h3>
+        <canvas baseChart [data]="teamsChartData" [options]="chartOptions" chartType="bar"></canvas>
+      </div>
+    </div>
+  </nz-card>
+</ng-container>
