@@ -1,0 +1,33 @@
+
+<ng-container>
+  <nz-card class="pilots-list">
+    <h2 appHighlightTitle>🏎️ Lista de Pilotos</h2>
+    <nz-select [(ngModel)]="selectedEscuderia" (ngModelChange)="changeEscuderia()" class="escuderia-selector">
+      <nz-option *ngFor="let escuderia of escuderias" [nzValue]="escuderia.teamId" [nzLabel]="escuderia.teamName"></nz-option>
+    </nz-select>
+    <nz-table [nzBordered]="true" [nzData]="pilots" [nzSize]="'middle'" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="10%">Posición</th>
+          <th nzWidth="10%">Foto</th>
+          <th nzWidth="25%">Piloto</th>
+          <th nzWidth="20%">Nacionalidad</th>
+          <th nzWidth="10%">Puntos</th>
+          <th nzWidth="15%">Escuderia</th>
+          <th nzWidth="10%">Wiki</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pilot of pilots">
+          <td>{{ pilot.driver.position }}</td>
+          <td><img [src]="'assets/images/pilotos/' + pilot.driver.driverId + '.jpg'" alt="Foto de {{ pilot.driver.name }}" class="pilot-photo"></td>
+          <td>{{ pilot.driver.name + ' ' + pilot.driver.surname | capitalize }}</td>
+          <td>{{ pilot.driver.nationality }}</td>
+          <td>{{ pilot.driver.points || 0 | points  }}</td>
+          <td>{{ teamName }}</td>
+          <td><a [href]="pilot.driver.url" target="_blank">Ver más</a></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</ng-container>

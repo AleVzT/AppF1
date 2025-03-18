@@ -1,0 +1,50 @@
+:host ::ng-deep .logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 20px;
+  flex-grow: 1;
+}
+
+:host ::ng-deep .title {
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+nz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  background-color: #001529; /* Fondo oscuro para toda la barra */
+  color: white; /* Asegura que los textos dentro del header sean blancos */
+}
+
+.ant-menu {
+  line-height: 64px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #001529;
+  color: white;
+}
+
+.ant-menu-item {
+  padding: 0 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.ant-menu-item:hover {
+  color: #1890ff;
+}
+.ant-menu-item a {
+  color: white; 
+  text-decoration: none;
+}
+
+.ant-menu-item a:hover {
+  color: #1890ff; 
+}
+

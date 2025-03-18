@@ -1,0 +1,55 @@
+<ng-container>
+  <nz-card class="hero-card">
+    <video autoplay muted loop class="background-video" width="100%" height="auto">
+      <source src="assets/videos/f1-race.mp4" type="video/mp4">
+    </video>
+    <div class="hero-text">
+      <h1 class="hero-title">🏁 Vive la velocidad de la F1</h1>
+      <p>Próxima carrera: {{ upcomingRace.raceName }} - {{ upcomingRace.circuit.circuitName + ', ' +  upcomingRace.circuit.country }} 
+        (<span [appFormatDate]="upcomingRace.schedule.sprintRace.date"></span>)</p>
+    </div>
+  </nz-card>
+
+  <nz-card class="top-drivers">
+    <h2 appHighlightTitle>🏎️ Top Pilotos</h2>
+    <nz-table #basicTable [nzBordered]="true" [nzData]="topDrivers" [nzSize]="'middle'" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="10%">Posición</th>
+          <th nzWidth="50%">Piloto</th>
+          <th nzWidth="40%">Equipo</th>
+          <th nzWidth="20%">Puntos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pilot of topDrivers">
+          <td>{{ pilot.position }}</td>
+          <td>{{ pilot.driver.name + ' ' + pilot.driver.surname + '  (' + pilot.driver.shortName + ')' | capitalize }}</td>
+          <td>{{ pilot.team.teamName | capitalize }}</td>
+          <td>{{ pilot.points }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+
+  <nz-card class="top-teams">
+    <h2 appHighlightTitle>🏆 Top Constructores</h2>
+    <nz-table #teamsTable [nzBordered]="true" [nzData]="topTeams" [nzSize]="'middle'" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="10%">Posición</th>
+          <th nzWidth="70%">Equipo</th>
+          <th nzWidth="20%">Puntos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let constructor of topTeams">
+          <td>{{ constructor.position }}</td>
+          <td>{{ constructor.team.teamName | capitalize }}</td>
+          <td>{{ constructor.points }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+
+</ng-container>

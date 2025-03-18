@@ -1,0 +1,25 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">
+      <span class="title">F1 SURELY</span>
+    </div>
+
+    <ul nz-menu nzMode="horizontal">
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/pages/home']">Inicio</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/pages/team']">Constructores</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/pages/pilot']">Pilotos</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/pages/pilot']">Buscardor de Pilotos</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="['/pages/dashboard']">Gráfico</a>
+      </li>
+    </ul>
+  </nz-header>
+</nz-layout>

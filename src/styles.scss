@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+
+.content-app {
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 60px;
+}
+
+body {
+    background-color: rgb(255, 254, 253);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+  
+a {
+    color: rgba(255, 72, 0, 0.637);
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: red;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+}
