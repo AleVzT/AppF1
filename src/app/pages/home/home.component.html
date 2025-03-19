@@ -6,7 +6,7 @@
     <div class="hero-text">
       <h1 class="hero-title">🏁 Vive la velocidad de la F1</h1>
       <p>Próxima carrera: {{ upcomingRace.raceName }} - {{ upcomingRace.circuit.circuitName + ', ' +  upcomingRace.circuit.country }} 
-        (<span [appFormatDate]="upcomingRace.schedule.sprintRace.date"></span>)</p>
+        (<span [appFormatDate]="upcomingRace.schedule.sprintRace?.date || null"></span>)</p>
     </div>
   </nz-card>
 

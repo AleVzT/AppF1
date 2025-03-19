@@ -1,24 +1,3 @@
-
-
-export interface ConstructorChampionship {
-    classificationId: number;
-    teamId: string;
-    points: number | null;
-    position: number;
-    wins: number | null;
-    team: TeamContructor;
-}
-
-export interface TeamContructor {
-    teamId: string;
-    teamName: string;
-    country: string;
-    firstAppareance: number;
-    constructorsChampionships: number;
-    driversChampionships: number;
-    url: string;
-}
-
 export interface ConstructorsChampionshipResponse {
     api: string;
     url: string;
@@ -28,4 +7,22 @@ export interface ConstructorsChampionshipResponse {
     season: string;
     championshipId: string;
     constructors_championship: ConstructorChampionship[];
+}
+
+export interface ConstructorChampionship {
+    classificationId: number;
+    teamId: string;
+    points: number;
+    position: number;
+    wins: number;
+    team: Team;
+}
+  
+export interface Team {
+    teamName: string;
+    country: string;
+    firstAppareance: number; 
+    constructorsChampionships: number;
+    driversChampionships: number;
+    url: string;
 }
