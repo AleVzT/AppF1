@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, ChartOptions } from 'chart.js';
+import { DriverChampionship, ConstructorChampionship } from 'src/app/models';
 import { F1ApiService } from 'src/app/services/f1-api.service';
 
 @Component({
@@ -32,9 +33,9 @@ export class DashboardComponent implements OnInit {
   HandleDrivers(): void {
     this.f1ApiService.getDriversChampionship(this.selectedYear, '5').subscribe(data => {
       this.pilotsChartData = {
-        labels: data.drivers_championship.map((driver: any) => `${driver.driver.name} ${driver.driver.surname}`),
+        labels: data.drivers_championship.map((driver: DriverChampionship) => `${driver.driver.name} ${driver.driver.surname}`),
         datasets: [{
-          data: data.drivers_championship.map((driver: any) => driver.points),
+          data: data.drivers_championship.map((driver: DriverChampionship) => driver.points),
           label: 'Puntos',
           backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#FF33A8', '#F4D03F'],
           borderColor: ['#D84315', '#1B5E20', '#0D47A1', '#880E4F', '#9C640C'],
@@ -47,9 +48,9 @@ export class DashboardComponent implements OnInit {
   HandleTeams(): void {
     this.f1ApiService.getConstructorsChampionship(this.selectedYear, '5').subscribe(data => {
       this.teamsChartData = {
-        labels: data.constructors_championship.map((team: any) => team.team.teamName),
+        labels: data.constructors_championship.map((team: ConstructorChampionship) => team.team.teamName),
         datasets: [{
-          data: data.constructors_championship.map((team: any) => team.points),
+          data: data.constructors_championship.map((team: ConstructorChampionship) => team.points),
           label: 'Puntos',
           backgroundColor: ['#E74C3C', '#2ECC71', '#3498DB', '#9B59B6', '#F39C12'],
           borderColor: ['#C0392B', '#27AE60', '#2980B9', '#8E44AD', '#D68910'],

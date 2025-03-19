@@ -8,18 +8,17 @@ import { HomeComponent } from './home/home.component'
 import { TeamListComponent } from './team-list/team-list.component';
 import { PilotListComponent } from './pilot-list/pilot-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormatDateDirective } from '../directives/format-date.directive';
-
+import { SearchPilotsComponent } from './search-pilots/search-pilots.component';
+import { FormatDateDirective, HighlightTitleDirective } from '../directives';
+import { CapitalizePipe, PointsPipe } from '../pipes';
 
 // Módulos de Ng-Zorro
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-import { HighlightTitleDirective } from '../directives/highlight-title.directive';
-import { CapitalizePipe } from '../pipes/capitalize.pipe';
-import { PointsPipe } from '../pipes/points.pipe';
-
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 @NgModule({
   declarations: [
@@ -27,6 +26,8 @@ import { PointsPipe } from '../pipes/points.pipe';
     TeamListComponent,
     PilotListComponent,
     DashboardComponent,
+    SearchPilotsComponent,
+
     FormatDateDirective,
     HighlightTitleDirective,
     CapitalizePipe,
@@ -42,6 +43,8 @@ import { PointsPipe } from '../pipes/points.pipe';
     NzTableModule,
     NzInputModule,
     NzSelectModule,
+    NzSpinModule,
+    NzEmptyModule,
   ],
   providers: [DatePipe],
 })

@@ -1,0 +1,42 @@
+<ng-container>
+  <nz-card class="search-pilots">
+    <h2 class="section-title">🔍 Buscar Pilotos</h2>
+    <div class="search-container">
+      <div class="search-field">
+        <label for="year">Año</label>
+        <nz-select [(ngModel)]="searchCriteria.year" (ngModelChange)="searchPilots()" class="year-selector">
+          <nz-option *ngFor="let year of years" [nzValue]="year" [nzLabel]="year"></nz-option>
+        </nz-select>
+      </div>
+      <div class="search-field">
+        <label for="name">Nombre o Apellido</label>
+        <input nz-input [(ngModel)]="searchCriteria.name" id="name" placeholder="Ingrese el nombre o apellido" (ngModelChange)="filterPilotsByName()" />
+      </div>
+    </div>
+  </nz-card>
+
+  <nz-spin *ngIf="isLoading" [nzSpinning]="isLoading" nzSize="large" nzSimple></nz-spin>
+
+  <div *ngIf="filteredPilots.length > 0" class="pilots-table">
+    <nz-table [nzBordered]="true" [nzData]="pilots" [nzSize]="'middle'" [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="20%">Año</th>
+          <th nzWidth="40%">Piloto</th>
+          <th nzWidth="20%">Nacionalidad</th>
+          <th nzWidth="20%">Wiki</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pilot of filteredPilots">
+          <td>{{ searchCriteria.year }}</td>
+          <td>{{ pilot.name + ' ' + pilot.surname | capitalize }}</td>
+          <td>{{ pilot.nationality }}</td>
+          <td><a [href]="pilot.url" target="_blank">Ver más</a></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <nz-empty *ngIf="!isLoading && filteredPilots.length === 0" [nzNotFoundContent]="'No se encontraron pilotos'" class="empty-state"></nz-empty>
+</ng-container>

@@ -2,7 +2,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { F1ChampionshipResponse } from '../models';
+import { 
+  DriversChampionshipResponse,
+  NextRaceResponse,
+  ConstructorsChampionshipResponse,
+  TeamsResponse,
+  DriversByTeamResponse,
+  DriversByYearResponse
+} from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,30 +20,30 @@ export class F1ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getRaces(): Observable<any> {
-    return this.http.get(`${this.apiUrl}races`);
+  getRaceNext(): Observable<NextRaceResponse> {
+    return this.http.get<NextRaceResponse>(`${this.apiUrl}/current/next`);
   }
 
-  getDriversChampionship(year: number, limit: string): Observable<any> {
+  getDriversChampionship(year: number, limit: string): Observable<DriversChampionshipResponse> {
     const params = new HttpParams().set('limit', limit);
-    return this.http.get(`${this.apiUrl}/${year}/drivers-championship`, { params });
+    return this.http.get<DriversChampionshipResponse>(`${this.apiUrl}/${year}/drivers-championship`, { params });
   }
 
-  getConstructorsChampionship(year: number, limit: string): Observable<any> {
+  getConstructorsChampionship(year: number, limit: string): Observable<ConstructorsChampionshipResponse> {
     const params = new HttpParams().set('limit', limit);
-    return this.http.get(`${this.apiUrl}/${year}/constructors-championship`, { params });
+    return this.http.get<ConstructorsChampionshipResponse>(`${this.apiUrl}/${year}/constructors-championship`, { params });
   }
 
-  getRaceNext(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/current/next`);
+  getTeams(): Observable<TeamsResponse> {
+    return this.http.get<TeamsResponse>(`${this.apiUrl}/current/teams`);
   }
 
-  getTeams(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/current/teams`);
+  getDriversByTeams(team: string): Observable<DriversByTeamResponse> {
+    return this.http.get<DriversByTeamResponse>(`${this.apiUrl}/current/teams/${team}/drivers`);
   }
 
-  getDriversByTeams(team: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/current/teams/${team}/drivers`);
+  getDriversByYear(year: number):  Observable<DriversByYearResponse> {
+    return this.http.get<DriversByYearResponse>(`${this.apiUrl}/${year}/drivers`);
   }
 
 }

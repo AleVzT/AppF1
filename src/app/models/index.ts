@@ -1,6 +1,6 @@
-export * from './F1ChampionshipResponse';
+export * from './NextRaceResponse';
+export * from './DriversChampionshipResponse';
 export * from './ConstructorsChampionshipResponse';
-export * from './F1RaceResponse';
-export * from './Drivers.model';
-export * from './team.model'
-
+export * from './TeamsResponse';
+export * from './DriversByTeamResponse';
+export * from './DriversByYearResponse';

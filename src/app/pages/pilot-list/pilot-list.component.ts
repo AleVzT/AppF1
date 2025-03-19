@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DriverResponse, TeamModel } from 'src/app/models';
+import { DriverDetails, GeneralTeam } from 'src/app/models';
 import { F1ApiService } from 'src/app/services/f1-api.service';
 
 @Component({
@@ -10,11 +10,11 @@ import { F1ApiService } from 'src/app/services/f1-api.service';
 export class PilotListComponent  implements OnInit {
   selectedEscuderia = 'mercedes';
 
-  escuderias: TeamModel[] = [];
+  escuderias: GeneralTeam[] = [];
 
   teamName: string = '';
 
-  pilots: DriverResponse[] = []
+  pilots: DriverDetails[] = []
 
   constructor(private f1ApiService: F1ApiService) { }
 
